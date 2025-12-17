@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartbeat Sensor Project</title>
+    <style>
+        :root {
+            --primary-color: #008080;
+            --secondary-color: #20B2AA;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        pre {
+            background-color: #e8f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        video {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Heartbeat Sensor using Arduino</h1>
+    </header>
+
+    <div class="container">
+
+        <!-- Project Description -->
+        <h2>Project Overview</h2>
+        <p>
+            This is a heart rate monitor that uses a photoplethysmography sensor. 
+            I wrote the source code in C++ and it runs on an Arduino Uno.
+            Pin-out diagram and pseudocode are below, and the full source code is on Github (linked below)
+        </p>
+
+        <p>
+            This project is licensed under the terms of the MIT license.
+        </p>
+
+        <h3>Upcoming Features</h3>
+        <ul>
+            <li>Real-time graph of raw sensor readings</li>
+            <li>Overlay of beat detected on raw sensor real-time graph</li>
+            <li>Output graph and BPM to an LED screen</li>
+        </ul>
+
+        
+
+        <!-- Pinout -->
+        <h2>Pinout Diagram</h2>
+        <img src="pinout.jpg" alt="Pinout Diagram">
+
+        <!-- Pseudocode -->
+        <h2>Pseudo Code</h2>
+        <pre>
+Program start
+
+Initialize serial communication at 9600 baud
+Define pulse sensor input pin
+
+Create pulse detection object
+
+Start infinite loop
+    Read analog signal from pulse sensor pin
+    Pass signal into detectBeat function
+
+    In detectBeat:
+        If signal rises above threshold AND latch is false
+            Record current time
+            If first beat OR time since last beat > minimum beat interval
+                Mark beat as detected
+                If previous beat exists
+                    Calculate time between beats
+                    Compute BPM
+                    If BPM is within valid physiological range
+                        Output BPM to serial monitor
+                Update last beat time
+            Set latch to true
+
+        If signal falls below threshold
+            Reset latch
+
+Repeat infinite loop
+        </pre>
+
+        <!-- GitHub -->
+        <h2>GitHub Repository</h2>
+        <p>
+            View the full project on
+            <a href="https://github.com/aditi-chaubal/heartbeat-sensor" target="_blank">
+                my Github.
+            </a>
+        </p>
+
+        <!-- Video -->
+        <h2>Project Video</h2>
+        <video controls>
+            <source src="heartbeat_demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <p><a href="index.html">Back to Home</a></p>
+    </div>
+
+</body>
+</html>

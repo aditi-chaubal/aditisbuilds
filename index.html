@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditi's Engineering Projects</title>
+    <style>
+        :root {
+            --primary-color: #008080;
+            --secondary-color: #20B2AA;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        header p {
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--secondary-color);
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .project {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .project:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .project img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        a {
+            color: var(--primary-color);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 40px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Aditi's Engineering Projects</h1>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container" id="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm Aditi! I'm a sophomore at Texas A&M studying Biomedical Engineering. I am very interested in medical device development and biotechnology.</p>
+    </div>
+
+    <div class="container" id="projects">
+        <h2>Projects</h2>
+
+        <!-- Clickable project card -->
+        <div class="project" onclick="window.location.href='heartbeat.html'">
+            <img src="heartbeat_sensor.jpg" alt="Heartbeat Sensor">
+            <div>
+                <h3>Heartbeat Sensor using Arduino</h3>
+                <p>Built a basic heartbeat sensor using Arduino and C++.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:aditi.chaubal@tamu.edu">aditi.chaubal@tamu.edu</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Aditi Chaubal</p>
+    </footer>
+
+</body>
+</html>
